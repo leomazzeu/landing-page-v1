@@ -71,6 +71,14 @@
       transform: translateY(0);
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
     /* ── TYPOGRAPHY SCALE ── */
     .text-display {
       font-family: var(--font-display);
@@ -113,7 +121,7 @@
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
+      transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out);
       border: none;
     }
     .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
