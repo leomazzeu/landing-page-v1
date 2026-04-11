@@ -329,6 +329,65 @@
       color: #fff;
       font-weight: 600;
     }
+
+    /* ── COMO TRABALHO ── */
+    .steps-flow {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      position: relative;
+      margin-top: 48px;
+    }
+    .step {
+      flex: 1;
+      position: relative;
+      padding: 0 24px 0 0;
+    }
+    .step:last-child { padding-right: 0; }
+
+    /* Connector line between steps */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: -12px;
+      width: calc(100% - 48px + 24px);
+      height: 1.5px;
+      background: linear-gradient(to right, var(--blue), rgba(37,99,235,0.3));
+      z-index: 0;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
+    }
+    .step h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .step p {
+      font-size: 0.9375rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
   </style>
 </head>
 <body>
@@ -443,7 +502,37 @@
     </div>
   </section>
 
-  <!-- COMO TRABALHO -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">Metodologia</span>
+        <h2 class="text-heading">Como eu trabalho</h2>
+      </div>
+      <div class="steps-flow">
+        <div class="step fade-in">
+          <div class="step-number" aria-hidden="true">01</div>
+          <h3>Imersão</h3>
+          <p>Entendo sua operação do jeito que ela realmente funciona — não como você acha que funciona. Por videochamada, mapeio processos, gargalos e onde o tempo da equipe está sendo desperdiçado.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-number" aria-hidden="true">02</div>
+          <h3>Diagnóstico</h3>
+          <p>Identifico quais processos têm maior impacto se automatizados e apresento um plano claro: o que será feito, como será feito e o resultado esperado.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-number" aria-hidden="true">03</div>
+          <h3>Construção</h3>
+          <p>Desenvolvo a automação em etapas testadas. Cada parte é validada antes de avançar — sem surpresa no final.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-number" aria-hidden="true">04</div>
+          <h3>Resultado</h3>
+          <p>A automação entra em produção. Acompanho os primeiros dias, ajusto o que for necessário e só considero entregue quando o resultado aparece de verdade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RESULTADOS -->
   <!-- FERRAMENTAS -->
   <!-- CTA FINAL -->
