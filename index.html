@@ -225,6 +225,64 @@
       pointer-events: none;
       z-index: 1;
     }
+
+    /* ── SECTION BASE ── */
+    .section { padding: var(--section-pad); }
+    .section--light { background: var(--off-white); }
+    .section--dark  { background: var(--navy); }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-title { margin-bottom: 48px; }
+
+    /* ── DOR — CARDS ── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pain-card:hover {
+      box-shadow: 0 8px 32px rgba(15,27,45,0.08);
+      transform: translateY(-2px);
+    }
+    .pain-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--blue-dim);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--blue);
+    }
+    .pain-icon svg { width: 18px; height: 18px; }
+    .pain-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .pain-card p {
+      font-size: 0.9375rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
   </style>
 </head>
 <body>
@@ -282,7 +340,45 @@
     </div>
   </section>
 
-  <!-- A DOR -->
+  <section class="section section--light" id="como-funciona">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label">O problema</span>
+        <h2 class="text-heading section-title">Você reconhece alguma<br>dessas situações?</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card fade-in">
+          <div class="pain-icon">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Você está no negócio, mas não no crescimento</h3>
+          <p>O dia vira uma sequência de tarefas que só você consegue resolver. Sobra pouco tempo para pensar estrategicamente.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-icon">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </div>
+          <h3>Sua equipe trabalha muito, mas você não tem visibilidade</h3>
+          <p>Não sabe o que foi feito, como foi feito, nem o que deu errado. A gestão vira achismo.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-icon">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Você sabe que precisa mudar, mas não sabe por onde começar</h3>
+          <p>Já pesquisou ferramentas, já tentou organizar processos — mas nada fica rodando sozinho de verdade.</p>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-icon">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Cada automação que você tentou parou no meio</h3>
+          <p>Ou foi complexa demais, ou não se encaixou na realidade do negócio, ou simplesmente não tinha suporte depois.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- QUEM SOU EU -->
   <!-- COMO TRABALHO -->
   <!-- RESULTADOS -->
