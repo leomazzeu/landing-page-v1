@@ -388,6 +388,67 @@
       color: var(--slate);
       line-height: 1.65;
     }
+
+    /* ── RESULTADOS ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .result-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 3px solid var(--blue);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .result-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(37,99,235,0.12);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 20px;
+    }
+    .result-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .result-card p {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .result-outcome {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(37,99,235,0.1);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .result-outcome-icon {
+      color: var(--blue);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .result-outcome-icon svg { width: 16px; height: 16px; }
+    .result-outcome p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body>
@@ -533,7 +594,27 @@
     </div>
   </section>
 
-  <!-- RESULTADOS -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="fade-in">
+        <span class="section-label" style="color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); padding:4px 10px; border-radius:4px; letter-spacing:0.08em; font-size:0.75rem; font-weight:600; text-transform:uppercase; display:inline-block; margin-bottom:12px;">Em produção</span>
+        <h2 class="text-heading" style="color:#fff;">Automações que já estão rodando</h2>
+      </div>
+      <div class="results-grid">
+        <div class="result-card fade-in">
+          <span class="result-tag">Relatório inteligente de atendimento</span>
+          <h3>Laborclin — Laboratório de Análises Clínicas</h3>
+          <p>Alto volume de mensagens no WhatsApp sem nenhuma visibilidade sobre o que a equipe estava respondendo. Hoje, um fluxo automatizado monitora todas as conversas durante o dia, processa com inteligência artificial e entrega um relatório completo por email às 17h.</p>
+          <div class="result-outcome">
+            <span class="result-outcome-icon">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <p>Gestão com visibilidade total — sem abrir o WhatsApp uma vez.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- FERRAMENTAS -->
   <!-- CTA FINAL -->
   <!-- FOOTER -->
