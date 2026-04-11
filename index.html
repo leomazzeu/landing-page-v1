@@ -592,6 +592,56 @@
       .thread-section::before,
       .thread-node { display: none; }
     }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      :root {
+        --section-pad: 72px 0;
+      }
+
+      /* Hero */
+      .hero { padding: 120px 0 80px; }
+      .hero-flow { display: none; }
+
+      /* Pain cards */
+      .pain-grid { grid-template-columns: 1fr; }
+
+      /* About */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .about-photo { width: 160px; height: 160px; }
+
+      /* Steps — vertical stack */
+      .steps-flow {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .step { padding: 0; }
+      .step:not(:last-child)::after {
+        display: none;
+      }
+      /* Vertical connector for mobile steps */
+      .step:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 19px;
+        top: 40px;
+        width: 1.5px;
+        height: calc(100% + 32px - 40px);
+        background: rgba(37, 99, 235, 0.2);
+      }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .btn-whatsapp-lg { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 <body>
