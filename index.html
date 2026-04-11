@@ -554,6 +554,44 @@
       font-size: 0.8125rem;
       color: rgba(255,255,255,0.25);
     }
+
+    /* ── FIO CONDUTOR ── */
+    .thread-section {
+      position: relative;
+    }
+    .thread-section::before {
+      content: '';
+      position: absolute;
+      left: calc((100vw - var(--container-max)) / 2 - 28px);
+      top: 0;
+      bottom: 0;
+      width: 1.5px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(37, 99, 235, 0.25) 15%,
+        rgba(37, 99, 235, 0.25) 85%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .thread-node {
+      position: absolute;
+      left: calc((100vw - var(--container-max)) / 2 - 35px);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 1.5px solid rgba(37, 99, 235, 0.5);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+      z-index: 2;
+      pointer-events: none;
+    }
+    /* Hide when container fills the viewport */
+    @media (max-width: 1148px) {
+      .thread-section::before,
+      .thread-node { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -611,7 +649,8 @@
     </div>
   </section>
 
-  <section class="section section--light" id="como-funciona">
+  <section class="section section--light thread-section" id="como-funciona">
+    <div class="thread-node" style="top: -7px; background: var(--off-white);" aria-hidden="true"></div>
     <div class="container">
       <div class="fade-in">
         <span class="section-label">O problema</span>
@@ -650,7 +689,8 @@
     </div>
   </section>
 
-  <section class="section section--dark">
+  <section class="section section--dark thread-section">
+    <div class="thread-node" style="top: -7px;" aria-hidden="true"></div>
     <div class="container">
       <div class="about-grid fade-in">
         <div class="about-photo-wrap">
@@ -668,7 +708,8 @@
     </div>
   </section>
 
-  <section class="section section--light">
+  <section class="section section--light thread-section">
+    <div class="thread-node" style="top: -7px; background: var(--off-white);" aria-hidden="true"></div>
     <div class="container">
       <div class="fade-in">
         <span class="section-label">Metodologia</span>
@@ -699,7 +740,8 @@
     </div>
   </section>
 
-  <section class="section section--dark">
+  <section class="section section--dark thread-section">
+    <div class="thread-node" style="top: -7px;" aria-hidden="true"></div>
     <div class="container">
       <div class="fade-in">
         <span class="section-label" style="color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); padding:4px 10px; border-radius:4px; letter-spacing:0.08em; font-size:0.75rem; font-weight:600; text-transform:uppercase; display:inline-block; margin-bottom:12px;">Em produção</span>
@@ -720,7 +762,8 @@
       </div>
     </div>
   </section>
-  <section class="tools-section">
+  <section class="tools-section thread-section">
+    <div class="thread-node" style="top: -7px; background: var(--off-white);" aria-hidden="true"></div>
     <div class="container">
       <p class="tools-label fade-in">Ferramentas que uso no dia a dia</p>
       <div class="tools-strip fade-in">
