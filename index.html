@@ -449,6 +449,57 @@
       font-weight: 500;
       margin-bottom: 0;
     }
+
+    /* ── FERRAMENTAS ── */
+    .tools-section {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--off-white);
+    }
+    .tools-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 28px;
+    }
+    .tools-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--slate);
+      background: var(--white);
+      filter: grayscale(1);
+      opacity: 0.7;
+      transition: opacity 0.2s, filter 0.2s;
+    }
+    .tool-badge:hover {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+    .tool-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.4;
+    }
   </style>
 </head>
 <body>
@@ -615,7 +666,20 @@
       </div>
     </div>
   </section>
-  <!-- FERRAMENTAS -->
+  <section class="tools-section">
+    <div class="container">
+      <p class="tools-label fade-in">Ferramentas que uso no dia a dia</p>
+      <div class="tools-strip fade-in">
+        <span class="tool-badge"><span class="tool-dot" style="background:#F05A28"></span>n8n</span>
+        <span class="tool-badge"><span class="tool-dot" style="background:#7B3FBE"></span>Make</span>
+        <span class="tool-badge"><span class="tool-dot" style="background:#0066FF"></span>Power Automate</span>
+        <span class="tool-badge"><span class="tool-dot" style="background:#FF4A00"></span>Zapier</span>
+        <span class="tool-badge"><span class="tool-dot" style="background:#10A37F"></span>OpenAI</span>
+        <span class="tool-badge"><span class="tool-dot" style="background:#CC785C"></span>Claude AI</span>
+        <span class="tool-badge"><span class="tool-dot" style="background:#25D366"></span>WhatsApp API</span>
+      </div>
+    </div>
+  </section>
   <!-- CTA FINAL -->
   <!-- FOOTER -->
 
