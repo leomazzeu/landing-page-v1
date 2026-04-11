@@ -283,6 +283,52 @@
       color: var(--slate);
       line-height: 1.65;
     }
+
+    /* ── QUEM SOU EU ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .about-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(37,99,235,0.4);
+      box-shadow: 0 0 0 8px rgba(37,99,235,0.08);
+    }
+    .about-name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+    .about-role {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      font-style: italic;
+    }
+    .about-text p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong {
+      color: #fff;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -379,7 +425,24 @@
     </div>
   </section>
 
-  <!-- QUEM SOU EU -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="about-grid fade-in">
+        <div class="about-photo-wrap">
+          <img src="../../../marketing/foto-leonardo-circulo.png" alt="Foto de Leonardo Mazzeu" class="about-photo" width="220" height="220" />
+          <span class="about-name">Leonardo Mazzeu</span>
+          <span class="about-role">Especialista em Automação de Processos e IA</span>
+        </div>
+        <div class="about-text">
+          <p><strong>Não sou consultor que entrega um pacote e some.</strong></p>
+          <p>Antes de escrever uma linha de automação, eu mergulho no seu negócio. Entendo como sua equipe trabalha, onde o tempo está sendo desperdiçado e quais processos travam o crescimento.</p>
+          <p>Só depois disso eu construo — e fico até funcionar de verdade.</p>
+          <p>Trabalho com PMEs que querem parar de apagar incêndio e começar a crescer com inteligência. Se você quer uma automação pronta, provavelmente não sou a escolha certa. <strong>Se você quer um parceiro que entende o seu negócio e constrói junto com você — é aqui.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- COMO TRABALHO -->
   <!-- RESULTADOS -->
   <!-- FERRAMENTAS -->
