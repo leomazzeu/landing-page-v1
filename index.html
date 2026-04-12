@@ -1,872 +1,1122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leonardo Mazzeu | Automação de Processos e Inteligência Artificial para PMEs</title>
-  <meta name="description" content="Especialista em automação de processos e IA para pequenas e médias empresas. Mergulho no seu negócio, identifico o que trava o crescimento e automatizo — e fico até o resultado aparecer." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leonardo Mazzeu | Automação de Processos e Inteligência Artificial para PMEs</title>
+    <meta
+      name="description"
+      content="Especialista em automação de processos e IA para pequenas e médias empresas. Mergulho no seu negócio, identifico o que trava o crescimento e automatizo — e fico até o resultado aparecer."
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Leonardo Mazzeu | Automação de Processos e IA para PMEs" />
-  <meta property="og:description" content="Especialista em automação de processos e IA para pequenas e médias empresas. Mergulho no seu negócio, identifico o que trava o crescimento e automatizo." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://leonardomazzeu.com.br" />
-  <meta property="og:image" content="https://leonardomazzeu.com.br/og-image.png" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Leonardo Mazzeu | Automação de Processos e IA para PMEs" />
+    <meta
+      property="og:description"
+      content="Especialista em automação de processos e IA para pequenas e médias empresas. Mergulho no seu negócio, identifico o que trava o crescimento e automatizo."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://leonardomazzeu.com.br" />
+    <meta property="og:image" content="https://leonardomazzeu.com.br/og-image.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F1B2D'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%232563EB'%3ELM%3C/text%3E%3C/svg%3E" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F1B2D'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='14' fill='%232563EB'%3ELM%3C/text%3E%3C/svg%3E"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    /* ── VARIABLES ── */
-    :root {
-      --navy:       #0F1B2D;
-      --navy-card:  #162236;
-      --blue:       #2563EB;
-      --blue-dim:   rgba(37, 99, 235, 0.15);
-      --slate:      #64748B;
-      --border:     #E2E8F0;
-      --off-white:  #F8FAFC;
-      --white:      #FFFFFF;
-
-      --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --font-body:    'Inter', system-ui, sans-serif;
-
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --section-pad: 96px 0;
-      --container-max: 1100px;
-      --container-pad: 0 24px;
-    }
-
-    /* ── RESET ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--white);
-      color: var(--navy);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* ── UTILITIES ── */
-    .container {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: var(--container-pad);
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .fade-in {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-    }
-
-    /* ── TYPOGRAPHY SCALE ── */
-    .text-display {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.25rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-    }
-    .text-heading {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-    }
-    .text-subheading {
-      font-family: var(--font-display);
-      font-size: 1.125rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-    .text-body {
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-    .text-small {
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
-
-    /* ── BUTTON ── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out);
-      border: none;
-    }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
-    .btn:active { transform: translateY(0); }
-    .btn-whatsapp {
-      background: #25D366;
-      color: #fff;
-    }
-    .btn-whatsapp svg { width: 20px; height: 20px; }
-
-    /* ── HEADER ── */
-    .header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(15, 27, 45, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .header.scrolled {
-      border-bottom-color: rgba(255,255,255,0.08);
-      box-shadow: 0 1px 24px rgba(0,0,0,0.3);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-    }
-    .logo {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-    .logo span { color: var(--blue); }
-    .header-cta {
-      font-size: 0.875rem;
-      padding: 10px 20px;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      background: var(--navy);
-      padding: 160px 0 120px;
-      overflow: hidden;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 24px;
-    }
-    .hero h1 {
-      color: #fff;
-      margin-bottom: 24px;
-    }
-    .hero-sub {
-      color: rgba(255,255,255,0.7);
-      font-size: 1.125rem;
-      line-height: 1.7;
-      margin-bottom: 40px;
-      max-width: 560px;
-    }
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .hero-scroll {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.45);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Hero — SVG flow decoration */
-    .hero-flow {
-      position: absolute;
-      right: -40px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 480px;
-      height: 400px;
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* ── SECTION BASE ── */
-    .section { padding: var(--section-pad); }
-    .section--light { background: var(--off-white); }
-    .section--dark  { background: var(--navy); }
-    .section-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 12px;
-    }
-    .section-title { margin-bottom: 48px; }
-
-    /* ── DOR — CARDS ── */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .pain-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px 32px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .pain-card:hover {
-      box-shadow: 0 8px 32px rgba(15,27,45,0.08);
-      transform: translateY(-2px);
-    }
-    .pain-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--blue-dim);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      color: var(--blue);
-    }
-    .pain-icon svg { width: 18px; height: 18px; }
-    .pain-card h3 {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    .pain-card p {
-      font-size: 0.9375rem;
-      color: var(--slate);
-      line-height: 1.65;
-    }
-
-    /* ── QUEM SOU EU ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .about-photo-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    .about-photo {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(37,99,235,0.4);
-      box-shadow: 0 0 0 8px rgba(37,99,235,0.08);
-    }
-    .about-name {
-      font-family: var(--font-display);
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-    }
-    .about-role {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      font-style: italic;
-    }
-    .about-text p {
-      color: rgba(255,255,255,0.75);
-      font-size: 1.0625rem;
-      line-height: 1.75;
-      margin-bottom: 20px;
-    }
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-text strong {
-      color: #fff;
-      font-weight: 600;
-    }
-
-    /* ── COMO TRABALHO ── */
-    .steps-flow {
-      display: flex;
-      align-items: flex-start;
-      gap: 0;
-      position: relative;
-      margin-top: 48px;
-    }
-    .step {
-      flex: 1;
-      position: relative;
-      padding: 0 24px 0 0;
-    }
-    .step:last-child { padding-right: 0; }
-
-    /* Connector line between steps */
-    .step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 20px;
-      right: -12px;
-      width: calc(100% - 48px + 24px);
-      height: 1.5px;
-      background: linear-gradient(to right, var(--blue), rgba(37,99,235,0.3));
-      z-index: 0;
-    }
-
-    .step-number {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-      flex-shrink: 0;
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
-    }
-    .step h3 {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-      line-height: 1.35;
-    }
-    .step p {
-      font-size: 0.9375rem;
-      color: var(--slate);
-      line-height: 1.65;
-    }
-
-    /* ── RESULTADOS ── */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-    }
-    .result-card {
-      background: var(--navy-card);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-left: 3px solid var(--blue);
-      border-radius: 12px;
-      padding: 32px;
-    }
-    .result-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--blue);
-      background: rgba(37,99,235,0.12);
-      border-radius: 4px;
-      padding: 4px 10px;
-      margin-bottom: 20px;
-    }
-    .result-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 12px;
-      line-height: 1.35;
-    }
-    .result-card p {
-      font-size: 0.9375rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .result-outcome {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: rgba(37,99,235,0.1);
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-    .result-outcome-icon {
-      color: var(--blue);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .result-outcome-icon svg { width: 16px; height: 16px; }
-    .result-outcome p {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
-      margin-bottom: 0;
-    }
-
-    /* ── FERRAMENTAS ── */
-    .tools-section {
-      padding: 64px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--off-white);
-    }
-    .tools-label {
-      text-align: center;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 28px;
-    }
-    .tools-strip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .tool-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-family: var(--font-body);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--slate);
-      background: var(--white);
-      filter: grayscale(1);
-      opacity: 0.7;
-      transition: opacity 0.2s, filter 0.2s;
-    }
-    .tool-badge:hover {
-      opacity: 1;
-      filter: grayscale(0);
-    }
-    .tool-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      opacity: 0.4;
-    }
-
-    /* ── CTA FINAL ── */
-    .cta-section {
-      padding: 120px 0;
-      text-align: center;
-      background: var(--navy);
-    }
-    .cta-section h2 {
-      color: #fff;
-      margin-bottom: 16px;
-    }
-    .cta-sub {
-      color: rgba(255,255,255,0.65);
-      font-size: 1.0625rem;
-      max-width: 520px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-    .cta-support {
-      display: block;
-      font-size: 0.8125rem;
-      color: rgba(255,255,255,0.35);
-      margin-top: 16px;
-    }
-    .btn-whatsapp-lg {
-      padding: 18px 36px;
-      font-size: 1.0625rem;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      background: #080f1a;
-      padding: 32px 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 0.9375rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-    }
-    .footer-logo span { color: var(--blue); }
-    .footer-meta {
-      font-size: 0.8125rem;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* ── FIO CONDUTOR ── */
-    .thread-section {
-      position: relative;
-    }
-    .thread-section::before {
-      content: '';
-      position: absolute;
-      left: calc((100vw - var(--container-max)) / 2 - 28px);
-      top: 0;
-      bottom: 0;
-      width: 1.5px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(37, 99, 235, 0.25) 15%,
-        rgba(37, 99, 235, 0.25) 85%,
-        transparent 100%
-      );
-      pointer-events: none;
-    }
-    .thread-node {
-      position: absolute;
-      left: calc((100vw - var(--container-max)) / 2 - 35px);
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--navy);
-      border: 1.5px solid rgba(37, 99, 235, 0.5);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
-      z-index: 2;
-      pointer-events: none;
-    }
-    /* Hide when container fills the viewport */
-    @media (max-width: 1148px) {
-      .thread-section::before,
-      .thread-node { display: none; }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
+    <style>
+      /* ── VARIABLES ── */
       :root {
-        --section-pad: 72px 0;
+        --navy: #0f1b2d;
+        --navy-card: #162236;
+        --blue: #2563eb;
+        --blue-dim: rgba(37, 99, 235, 0.15);
+        --slate: #64748b;
+        --border: #e2e8f0;
+        --off-white: #f8fafc;
+        --white: #ffffff;
+
+        --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+        --font-body: "Inter", system-ui, sans-serif;
+
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --section-pad: 96px 0;
+        --container-max: 1100px;
+        --container-pad: 0 24px;
       }
 
-      /* Hero */
-      .hero { padding: 120px 0 80px; }
-      .hero-flow { display: none; }
+      /* ── RESET ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--white);
+        color: var(--navy);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
 
-      /* Pain cards */
-      .pain-grid { grid-template-columns: 1fr; }
+      /* ── UTILITIES ── */
+      .container {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: var(--container-pad);
+      }
 
-      /* About */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s var(--ease-out),
+          transform 0.6s var(--ease-out);
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .fade-in {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* ── TYPOGRAPHY SCALE ── */
+      .text-display {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 5vw, 3.25rem);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+      .text-heading {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+      .text-subheading {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .text-body {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .text-small {
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+
+      /* ── BUTTON ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          transform 0.15s var(--ease-out),
+          box-shadow 0.15s var(--ease-out);
+        border: none;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+      .btn-whatsapp {
+        background: #25d366;
+        color: #fff;
+      }
+      .btn-whatsapp svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* ── HEADER ── */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(15, 27, 45, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid transparent;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+      .header.scrolled {
+        border-bottom-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 1px 24px rgba(0, 0, 0, 0.3);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .logo {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+      }
+      .logo span {
+        color: var(--blue);
+      }
+      .header-cta {
+        font-size: 0.875rem;
+        padding: 10px 20px;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        background: var(--navy);
+        padding: 160px 0 120px;
+        overflow: hidden;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 680px;
+      }
+      .hero-eyebrow {
+        display: inline-block;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        color: #fff;
+        margin-bottom: 24px;
+      }
+      .hero-sub {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        max-width: 560px;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .hero-scroll {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.45);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* Hero — SVG flow decoration */
+      .hero-flow {
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 480px;
+        height: 400px;
+        opacity: 0.12;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* ── SECTION BASE ── */
+      .section {
+        padding: var(--section-pad);
+      }
+      .section--light {
+        background: var(--off-white);
+      }
+      .section--dark {
+        background: var(--navy);
+      }
+      .section-label {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 12px;
+      }
+      .section-title {
+        margin-bottom: 48px;
+      }
+
+      /* ── DOR — CARDS ── */
+      .pain-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .pain-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 28px 32px;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .pain-card:hover {
+        box-shadow: 0 8px 32px rgba(15, 27, 45, 0.08);
+        transform: translateY(-2px);
+      }
+      .pain-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--blue-dim);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        color: var(--blue);
+      }
+      .pain-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .pain-card h3 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      .pain-card p {
+        font-size: 0.9375rem;
+        color: var(--slate);
+        line-height: 1.65;
+      }
+
+      /* ── QUEM SOU EU ── */
       .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .about-photo-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .about-photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(37, 99, 235, 0.4);
+        box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.08);
+      }
+      .about-name {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #fff;
         text-align: center;
       }
-      .about-photo { width: 160px; height: 160px; }
+      .about-role {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        font-style: italic;
+      }
+      .about-text p {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 1.0625rem;
+        line-height: 1.75;
+        margin-bottom: 20px;
+      }
+      .about-text p:last-child {
+        margin-bottom: 0;
+      }
+      .about-text strong {
+        color: #fff;
+        font-weight: 600;
+      }
 
-      /* Steps — vertical stack */
+      /* ── COMO TRABALHO ── */
       .steps-flow {
-        flex-direction: column;
-        gap: 32px;
+        display: flex;
+        align-items: flex-start;
+        gap: 0;
+        position: relative;
+        margin-top: 48px;
       }
-      .step { padding: 0; }
+      .step {
+        flex: 1;
+        position: relative;
+        padding: 0 24px 0 0;
+      }
+      .step:last-child {
+        padding-right: 0;
+      }
+
+      /* Connector line between steps */
       .step:not(:last-child)::after {
-        display: none;
-      }
-      /* Vertical connector for mobile steps */
-      .step:not(:last-child)::before {
-        content: '';
+        content: "";
         position: absolute;
-        left: 19px;
-        top: 40px;
-        width: 1.5px;
-        height: calc(100% + 32px - 40px);
-        background: rgba(37, 99, 235, 0.2);
+        top: 20px;
+        right: -12px;
+        width: calc(100% - 48px + 24px);
+        height: 1.5px;
+        background: linear-gradient(to right, var(--blue), rgba(37, 99, 235, 0.3));
+        z-index: 0;
       }
 
-      /* Footer */
-      .footer-inner { flex-direction: column; text-align: center; }
+      .step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+      }
+      .step h3 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 10px;
+        line-height: 1.35;
+      }
+      .step p {
+        font-size: 0.9375rem;
+        color: var(--slate);
+        line-height: 1.65;
+      }
 
-      .header-cta .cta-text { display: none; }
-    }
+      /* ── RESULTADOS ── */
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .result-card {
+        background: var(--navy-card);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-left: 3px solid var(--blue);
+        border-radius: 12px;
+        padding: 32px;
+      }
+      .result-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--blue);
+        background: rgba(37, 99, 235, 0.12);
+        border-radius: 4px;
+        padding: 4px 10px;
+        margin-bottom: 20px;
+      }
+      .result-card h3 {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 12px;
+        line-height: 1.35;
+      }
+      .result-card p {
+        font-size: 0.9375rem;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .result-outcome {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(37, 99, 235, 0.1);
+        border-radius: 8px;
+        padding: 14px 16px;
+      }
+      .result-outcome-icon {
+        color: var(--blue);
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .result-outcome-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+      .result-outcome p {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+        margin-bottom: 0;
+      }
 
-    @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; align-items: flex-start; }
-      .btn-whatsapp-lg { width: 100%; justify-content: center; }
-    }
-  </style>
-</head>
-<body>
+      /* ── FERRAMENTAS ── */
+      .tools-section {
+        padding: 64px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: var(--off-white);
+      }
+      .tools-label {
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin-bottom: 28px;
+      }
+      .tools-strip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .tool-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--slate);
+        background: var(--white);
+        filter: grayscale(1);
+        opacity: 0.7;
+        transition:
+          opacity 0.2s,
+          filter 0.2s;
+      }
+      .tool-badge:hover {
+        opacity: 1;
+        filter: grayscale(0);
+      }
+      .tool-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+        opacity: 0.4;
+      }
 
-  <header class="header">
-    <div class="container">
-      <div class="header-inner">
-        <a href="#" class="logo">Leonardo <span>Mazzeu</span></a>
-        <a href="https://wa.me/5535999949096?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o" class="btn btn-whatsapp header-cta" target="_blank" rel="noopener noreferrer">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span class="cta-text">Falar no WhatsApp</span>
-        </a>
-      </div>
-    </div>
-  </header>
+      /* ── CTA FINAL ── */
+      .cta-section {
+        padding: 120px 0;
+        text-align: center;
+        background: var(--navy);
+      }
+      .cta-section h2 {
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      .cta-sub {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 1.0625rem;
+        max-width: 520px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+      }
+      .cta-support {
+        display: block;
+        font-size: 0.8125rem;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 16px;
+      }
+      .btn-whatsapp-lg {
+        padding: 18px 36px;
+        font-size: 1.0625rem;
+      }
 
-  <section class="hero">
-    <!-- Flow decoration (n8n-style background) -->
-    <svg class="hero-flow" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- Node 1 (filled) -->
-      <rect x="20" y="80" width="120" height="48" rx="8" fill="#2563EB" stroke="#2563EB" stroke-width="1.5"/>
-      <!-- Connector 1→2 -->
-      <path d="M140 104 L180 104 L180 180 L220 180" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <circle cx="180" cy="140" r="3" fill="#2563EB"/>
-      <!-- Node 2 (outline) -->
-      <rect x="220" y="156" width="120" height="48" rx="8" fill="none" stroke="#2563EB" stroke-width="1.5"/>
-      <!-- Connector 2→3 -->
-      <path d="M340 180 L380 180 L380 280 L60 280 L60 320" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <circle cx="380" cy="230" r="3" fill="#2563EB"/>
-      <!-- Node 3 (outline) -->
-      <rect x="20" y="296" width="120" height="48" rx="8" fill="none" stroke="#2563EB" stroke-width="1.5"/>
-      <!-- Connector 3→4 -->
-      <path d="M140 320 L280 320 L280 240" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <!-- Node 4 (semi-filled) -->
-      <rect x="220" y="216" width="120" height="48" rx="8" fill="#2563EB" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
-      <!-- Ambient dots -->
-      <circle cx="60" cy="40" r="4" fill="#2563EB" opacity="0.5"/>
-      <circle cx="400" cy="340" r="4" fill="#2563EB" opacity="0.5"/>
-      <circle cx="440" cy="80" r="3" fill="#2563EB" opacity="0.3"/>
-    </svg>
+      /* ── FOOTER ── */
+      .footer {
+        background: #080f1a;
+        padding: 32px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer-logo {
+        font-family: var(--font-display);
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+      }
+      .footer-logo span {
+        color: var(--blue);
+      }
+      .footer-meta {
+        font-size: 0.8125rem;
+        color: rgba(255, 255, 255, 0.25);
+      }
 
-    <div class="container">
-      <div class="hero-content fade-in">
-        <span class="hero-eyebrow">Automação de Processos · Inteligência Artificial</span>
-        <h1 class="text-display">Processos manuais são o freio do seu negócio.</h1>
-        <p class="hero-sub">Eu mergulho na sua operação, identifico o que trava o crescimento e automatizo com inteligência artificial — e fico até o resultado aparecer de verdade.</p>
-        <div class="hero-actions">
-          <a href="https://wa.me/5535999949096?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Falar no WhatsApp
+      /* ── FIO CONDUTOR ── */
+      .thread-section {
+        position: relative;
+      }
+      .thread-section::before {
+        content: "";
+        position: absolute;
+        left: calc((100vw - var(--container-max)) / 2 - 28px);
+        top: 0;
+        bottom: 0;
+        width: 1.5px;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(37, 99, 235, 0.25) 15%,
+          rgba(37, 99, 235, 0.25) 85%,
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+      .thread-node {
+        position: absolute;
+        left: calc((100vw - var(--container-max)) / 2 - 35px);
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--navy);
+        border: 1.5px solid rgba(37, 99, 235, 0.5);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+        z-index: 2;
+        pointer-events: none;
+      }
+      /* Hide when container fills the viewport */
+      @media (max-width: 1148px) {
+        .thread-section::before,
+        .thread-node {
+          display: none;
+        }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        :root {
+          --section-pad: 72px 0;
+        }
+
+        /* Hero */
+        .hero {
+          padding: 120px 0 80px;
+        }
+        .hero-flow {
+          display: none;
+        }
+
+        /* Pain cards */
+        .pain-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* About */
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          text-align: center;
+        }
+        .about-photo {
+          width: 160px;
+          height: 160px;
+        }
+
+        /* Steps — vertical stack */
+        .steps-flow {
+          flex-direction: column;
+          gap: 32px;
+        }
+        .step {
+          padding: 0;
+        }
+        .step:not(:last-child)::after {
+          display: none;
+        }
+        /* Vertical connector for mobile steps */
+        .step:not(:last-child)::before {
+          content: "";
+          position: absolute;
+          left: 19px;
+          top: 40px;
+          width: 1.5px;
+          height: calc(100% + 32px - 40px);
+          background: rgba(37, 99, 235, 0.2);
+        }
+
+        /* Footer */
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .header-cta .cta-text {
+          display: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .btn-whatsapp-lg {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="#" class="logo">Leonardo <span>Mazzeu</span></a>
+          <a
+            href="https://wa.me/5535999949096?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o"
+            class="btn btn-whatsapp header-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              />
+            </svg>
+            <span class="cta-text">Falar no WhatsApp</span>
           </a>
-          <span class="hero-scroll">Ver como funciona ↓</span>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="section section--light thread-section" id="como-funciona">
-    <div class="thread-node" style="top: -7px; background: var(--off-white);" aria-hidden="true"></div>
-    <div class="container">
-      <div class="fade-in">
-        <span class="section-label">O problema</span>
-        <h2 class="text-heading section-title">Você reconhece alguma<br>dessas situações?</h2>
-      </div>
-      <div class="pain-grid">
-        <div class="pain-card fade-in">
-          <div class="pain-icon">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Você está no negócio, mas não no crescimento</h3>
-          <p>O dia vira uma sequência de tarefas que só você consegue resolver. Sobra pouco tempo para pensar estrategicamente.</p>
-        </div>
-        <div class="pain-card fade-in">
-          <div class="pain-icon">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-          </div>
-          <h3>Sua equipe trabalha muito, mas você não tem visibilidade</h3>
-          <p>Não sabe o que foi feito, como foi feito, nem o que deu errado. A gestão vira achismo.</p>
-        </div>
-        <div class="pain-card fade-in">
-          <div class="pain-icon">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          </div>
-          <h3>Você sabe que precisa mudar, mas não sabe por onde começar</h3>
-          <p>Já pesquisou ferramentas, já tentou organizar processos — mas nada fica rodando sozinho de verdade.</p>
-        </div>
-        <div class="pain-card fade-in">
-          <div class="pain-icon">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>Cada automação que você tentou parou no meio</h3>
-          <p>Ou foi complexa demais, ou não se encaixou na realidade do negócio, ou simplesmente não tinha suporte depois.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="hero">
+      <!-- Flow decoration (n8n-style background) -->
+      <svg class="hero-flow" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Node 1 (filled) -->
+        <rect x="20" y="80" width="120" height="48" rx="8" fill="#2563EB" stroke="#2563EB" stroke-width="1.5" />
+        <!-- Connector 1→2 -->
+        <path d="M140 104 L180 104 L180 180 L220 180" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4 3" />
+        <circle cx="180" cy="140" r="3" fill="#2563EB" />
+        <!-- Node 2 (outline) -->
+        <rect x="220" y="156" width="120" height="48" rx="8" fill="none" stroke="#2563EB" stroke-width="1.5" />
+        <!-- Connector 2→3 -->
+        <path
+          d="M340 180 L380 180 L380 280 L60 280 L60 320"
+          stroke="#2563EB"
+          stroke-width="1.5"
+          stroke-dasharray="4 3"
+        />
+        <circle cx="380" cy="230" r="3" fill="#2563EB" />
+        <!-- Node 3 (outline) -->
+        <rect x="20" y="296" width="120" height="48" rx="8" fill="none" stroke="#2563EB" stroke-width="1.5" />
+        <!-- Connector 3→4 -->
+        <path d="M140 320 L280 320 L280 240" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4 3" />
+        <!-- Node 4 (semi-filled) -->
+        <rect
+          x="220"
+          y="216"
+          width="120"
+          height="48"
+          rx="8"
+          fill="#2563EB"
+          stroke="#2563EB"
+          stroke-width="1.5"
+          opacity="0.5"
+        />
+        <!-- Ambient dots -->
+        <circle cx="60" cy="40" r="4" fill="#2563EB" opacity="0.5" />
+        <circle cx="400" cy="340" r="4" fill="#2563EB" opacity="0.5" />
+        <circle cx="440" cy="80" r="3" fill="#2563EB" opacity="0.3" />
+      </svg>
 
-  <section class="section section--dark thread-section">
-    <div class="thread-node" style="top: -7px;" aria-hidden="true"></div>
-    <div class="container">
-      <div class="about-grid fade-in">
-        <div class="about-photo-wrap">
-          <img src="foto-leonardo-circulo.png" alt="Foto de Leonardo Mazzeu" class="about-photo" width="220" height="220" />
-          <span class="about-name">Leonardo Mazzeu</span>
-          <span class="about-role">Especialista em Automação de Processos e IA</span>
-        </div>
-        <div class="about-text">
-          <p><strong>Não sou consultor que entrega um pacote e some.</strong></p>
-          <p>Antes de escrever uma linha de automação, eu mergulho no seu negócio. Entendo como sua equipe trabalha, onde o tempo está sendo desperdiçado e quais processos travam o crescimento.</p>
-          <p>Só depois disso eu construo — e fico até funcionar de verdade.</p>
-          <p>Trabalho com PMEs que querem parar de apagar incêndio e começar a crescer com inteligência. Se você quer uma automação pronta, provavelmente não sou a escolha certa. <strong>Se você quer um parceiro que entende o seu negócio e constrói junto com você — é aqui.</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--light thread-section">
-    <div class="thread-node" style="top: -7px; background: var(--off-white);" aria-hidden="true"></div>
-    <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Metodologia</span>
-        <h2 class="text-heading section-title">Como eu trabalho</h2>
-      </div>
-      <div class="steps-flow">
-        <div class="step fade-in">
-          <div class="step-number" aria-hidden="true">01</div>
-          <h3>Imersão</h3>
-          <p>Entendo sua operação do jeito que ela realmente funciona — não como você acha que funciona. Por videochamada, mapeio processos, gargalos e onde o tempo da equipe está sendo desperdiçado.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="step-number" aria-hidden="true">02</div>
-          <h3>Diagnóstico</h3>
-          <p>Identifico quais processos têm maior impacto se automatizados e apresento um plano claro: o que será feito, como será feito e o resultado esperado.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="step-number" aria-hidden="true">03</div>
-          <h3>Construção</h3>
-          <p>Desenvolvo a automação em etapas testadas. Cada parte é validada antes de avançar — sem surpresa no final.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="step-number" aria-hidden="true">04</div>
-          <h3>Resultado</h3>
-          <p>A automação entra em produção. Acompanho os primeiros dias, ajusto o que for necessário e só considero entregue quando o resultado aparece de verdade.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--dark thread-section">
-    <div class="thread-node" style="top: -7px;" aria-hidden="true"></div>
-    <div class="container">
-      <div class="fade-in">
-        <span class="section-label" style="color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); padding:4px 10px; border-radius:4px; letter-spacing:0.08em; font-size:0.75rem; font-weight:600; text-transform:uppercase; display:inline-block; margin-bottom:12px;">Em produção</span>
-        <h2 class="text-heading" style="color:#fff;">Automações que já estão rodando</h2>
-      </div>
-      <div class="results-grid">
-        <div class="result-card fade-in">
-          <span class="result-tag">Relatório inteligente de atendimento</span>
-          <h3>Laborclin — Laboratório de Análises Clínicas</h3>
-          <p>Alto volume de mensagens no WhatsApp sem nenhuma visibilidade sobre o que a equipe estava respondendo. Hoje, um fluxo automatizado monitora todas as conversas durante o dia, processa com inteligência artificial e entrega um relatório completo por email às 17h.</p>
-          <div class="result-outcome">
-            <span class="result-outcome-icon">
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            <p>Gestão com visibilidade total — sem abrir o WhatsApp uma vez.</p>
+      <div class="container">
+        <div class="hero-content fade-in">
+          <span class="hero-eyebrow">Automação de Processos · Inteligência Artificial</span>
+          <h1 class="text-display">Processos manuais são o freio do seu negócio.</h1>
+          <p class="hero-sub">
+            Eu mergulho na sua operação, identifico o que trava o crescimento e automatizo com inteligência artificial —
+            e fico até o resultado aparecer de verdade.
+          </p>
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/5535999949096?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o"
+              class="btn btn-whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+              Falar no WhatsApp
+            </a>
+            <span class="hero-scroll">Ver como funciona ↓</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="tools-section thread-section">
-    <div class="thread-node" style="top: -7px; background: var(--off-white);" aria-hidden="true"></div>
-    <div class="container">
-      <p class="tools-label fade-in">Ferramentas que uso no dia a dia</p>
-      <div class="tools-strip fade-in">
-        <span class="tool-badge"><span class="tool-dot" style="background:#F05A28"></span>n8n</span>
-        <span class="tool-badge"><span class="tool-dot" style="background:#7B3FBE"></span>Make</span>
-        <span class="tool-badge"><span class="tool-dot" style="background:#0066FF"></span>Power Automate</span>
-        <span class="tool-badge"><span class="tool-dot" style="background:#FF4A00"></span>Zapier</span>
-        <span class="tool-badge"><span class="tool-dot" style="background:#10A37F"></span>OpenAI</span>
-        <span class="tool-badge"><span class="tool-dot" style="background:#CC785C"></span>Claude AI</span>
-        <span class="tool-badge"><span class="tool-dot" style="background:#25D366"></span>WhatsApp API</span>
-      </div>
-    </div>
-  </section>
-  <section class="cta-section">
-    <div class="container">
-      <div class="fade-in">
-        <h2 class="text-heading">Pronto para parar de apagar incêndio?</h2>
-        <p class="cta-sub">Me conta como funciona sua operação. Em 30 minutos consigo te mostrar onde a automação libera mais tempo e gera mais resultado — sem compromisso.</p>
-        <a href="https://wa.me/5535999949096?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o" class="btn btn-whatsapp btn-whatsapp-lg" target="_blank" rel="noopener noreferrer">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Falar no WhatsApp agora
-        </a>
-        <span class="cta-support">Respondo em até 2 horas nos dias úteis.</span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <a href="/" class="footer-logo">Leonardo <span>Mazzeu</span></a>
-        <span class="footer-meta">Automação de Processos e IA para PMEs · leonardomazzeu.com.br</span>
+    <section class="section section--light thread-section" id="como-funciona">
+      <div class="thread-node" style="top: -7px; background: var(--off-white)" aria-hidden="true"></div>
+      <div class="container">
+        <div class="fade-in">
+          <span class="section-label">O problema</span>
+          <h2 class="text-heading section-title">Você reconhece alguma<br />dessas situações?</h2>
+        </div>
+        <div class="pain-grid">
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <h3>Você está no negócio, mas não no crescimento</h3>
+            <p>
+              O dia vira uma sequência de tarefas que só você consegue resolver. Sobra pouco tempo para pensar
+              estrategicamente.
+            </p>
+          </div>
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg>
+            </div>
+            <h3>Sua equipe trabalha muito, mas você não tem visibilidade</h3>
+            <p>Não sabe o que foi feito, como foi feito, nem o que deu errado. A gestão vira achismo.</p>
+          </div>
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+            </div>
+            <h3>Você sabe que precisa mudar, mas não sabe por onde começar</h3>
+            <p>Já pesquisou ferramentas, já tentou organizar processos — mas nada fica rodando sozinho de verdade.</p>
+          </div>
+          <div class="pain-card fade-in">
+            <div class="pain-icon">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <h3>Cada automação que você tentou parou no meio</h3>
+            <p>
+              Ou foi complexa demais, ou não se encaixou na realidade do negócio, ou simplesmente não tinha suporte
+              depois.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    // Scroll animations — IntersectionObserver
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    <section class="section section--dark thread-section">
+      <div class="thread-node" style="top: -7px" aria-hidden="true"></div>
+      <div class="container">
+        <div class="about-grid fade-in">
+          <div class="about-photo-wrap">
+            <img
+              src="foto-leonardo-circulo.png"
+              alt="Foto de Leonardo Mazzeu"
+              class="about-photo"
+              width="220"
+              height="220"
+            />
+            <span class="about-name">Leonardo Mazzeu</span>
+            <span class="about-role">Especialista em Automação de Processos e IA</span>
+          </div>
+          <div class="about-text">
+            <p><strong>Não sou consultor que entrega um pacote e some.</strong></p>
+            <p>
+              Antes de escrever uma linha de automação, eu mergulho no seu negócio. Entendo como sua equipe trabalha,
+              onde o tempo está sendo desperdiçado e quais processos travam o crescimento.
+            </p>
+            <p>Só depois disso eu construo — e fico até funcionar de verdade.</p>
+            <p>
+              Trabalho com PMEs que querem parar de apagar incêndio e começar a crescer com inteligência. Se você quer
+              uma automação pronta, provavelmente não sou a escolha certa.
+              <strong>Se você quer um parceiro que entende o seu negócio e constrói junto com você — é aqui.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    // Header scroll state
-    const header = document.querySelector('.header');
-    if (header) {
-      window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 20);
-      }, { passive: true });
-    }
-  </script>
-</body>
+    <section class="section section--light thread-section">
+      <div class="thread-node" style="top: -7px; background: var(--off-white)" aria-hidden="true"></div>
+      <div class="container">
+        <div class="fade-in">
+          <span class="section-label">Metodologia</span>
+          <h2 class="text-heading section-title">Como eu trabalho</h2>
+        </div>
+        <div class="steps-flow">
+          <div class="step fade-in">
+            <div class="step-number" aria-hidden="true">01</div>
+            <h3>Imersão</h3>
+            <p>
+              Entendo sua operação do jeito que ela realmente funciona — não como você acha que funciona. Por
+              videochamada, mapeio processos, gargalos e onde o tempo da equipe está sendo desperdiçado.
+            </p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-number" aria-hidden="true">02</div>
+            <h3>Diagnóstico</h3>
+            <p>
+              Identifico quais processos têm maior impacto se automatizados e apresento um plano claro: o que será
+              feito, como será feito e o resultado esperado.
+            </p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-number" aria-hidden="true">03</div>
+            <h3>Construção</h3>
+            <p>
+              Desenvolvo a automação em etapas testadas. Cada parte é validada antes de avançar — sem surpresa no final.
+            </p>
+          </div>
+          <div class="step fade-in">
+            <div class="step-number" aria-hidden="true">04</div>
+            <h3>Resultado</h3>
+            <p>
+              A automação entra em produção. Acompanho os primeiros dias, ajusto o que for necessário e só considero
+              entregue quando o resultado aparece de verdade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark thread-section">
+      <div class="thread-node" style="top: -7px" aria-hidden="true"></div>
+      <div class="container">
+        <div class="fade-in">
+          <span
+            class="section-label"
+            style="
+              color: rgba(255, 255, 255, 0.5);
+              background: rgba(255, 255, 255, 0.05);
+              padding: 4px 10px;
+              border-radius: 4px;
+              letter-spacing: 0.08em;
+              font-size: 0.75rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              display: inline-block;
+              margin-bottom: 12px;
+            "
+            >Em produção</span
+          >
+          <h2 class="text-heading" style="color: #fff">Automações que já estão rodando</h2>
+        </div>
+        <div class="results-grid">
+          <div class="result-card fade-in">
+            <span class="result-tag">Relatório inteligente de atendimento</span>
+            <h3>Laborclin — Laboratório de Análises Clínicas</h3>
+            <p>
+              Alto volume de mensagens no WhatsApp sem nenhuma visibilidade sobre o que a equipe estava respondendo.
+              Hoje, um fluxo automatizado monitora todas as conversas durante o dia, processa com inteligência
+              artificial e entrega um relatório completo por email às 17h.
+            </p>
+            <div class="result-outcome">
+              <span class="result-outcome-icon">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <p>Gestão com visibilidade total — sem abrir o WhatsApp uma vez.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="tools-section thread-section">
+      <div class="thread-node" style="top: -7px; background: var(--off-white)" aria-hidden="true"></div>
+      <div class="container">
+        <p class="tools-label fade-in">Ferramentas que uso no dia a dia</p>
+        <div class="tools-strip fade-in">
+          <span class="tool-badge"><span class="tool-dot" style="background: #f05a28"></span>n8n</span>
+          <span class="tool-badge"><span class="tool-dot" style="background: #7b3fbe"></span>Make</span>
+          <span class="tool-badge"><span class="tool-dot" style="background: #0066ff"></span>Power Automate</span>
+          <span class="tool-badge"><span class="tool-dot" style="background: #ff4a00"></span>Zapier</span>
+          <span class="tool-badge"><span class="tool-dot" style="background: #10a37f"></span>OpenAI</span>
+          <span class="tool-badge"><span class="tool-dot" style="background: #cc785c"></span>Claude AI</span>
+          <span class="tool-badge"><span class="tool-dot" style="background: #25d366"></span>WhatsApp API</span>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container">
+        <div class="fade-in">
+          <h2 class="text-heading">Pronto para parar de apagar incêndio?</h2>
+          <p class="cta-sub">
+            Me conta como funciona sua operação. Em 30 minutos consigo te mostrar onde a automação libera mais tempo e
+            gera mais resultado — sem compromisso.
+          </p>
+          <a
+            href="https://wa.me/5535999949096?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o"
+            class="btn btn-whatsapp btn-whatsapp-lg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              />
+            </svg>
+            Falar no WhatsApp agora
+          </a>
+          <span class="cta-support">Respondo em até 2 horas nos dias úteis.</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <a href="/" class="footer-logo">Leonardo <span>Mazzeu</span></a>
+          <span class="footer-meta">Automação de Processos e IA para PMEs · leonardomazzeu.com.br</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll animations — IntersectionObserver
+      const observer = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          }),
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+      // Header scroll state
+      const header = document.querySelector(".header");
+      if (header) {
+        window.addEventListener(
+          "scroll",
+          () => {
+            header.classList.toggle("scrolled", window.scrollY > 20);
+          },
+          { passive: true },
+        );
+      }
+    </script>
+  </body>
 </html>
