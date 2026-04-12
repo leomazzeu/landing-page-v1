@@ -695,18 +695,36 @@
         }
         .step {
           padding: 0;
+          display: grid;
+          grid-template-columns: 40px 1fr;
+          grid-template-rows: auto 1fr;
+          column-gap: 16px;
+        }
+        .step-number {
+          grid-column: 1;
+          grid-row: 1;
+          margin-bottom: 0;
+        }
+        .step h3 {
+          grid-column: 2;
+          grid-row: 1;
+          padding-top: 8px;
+        }
+        .step p {
+          grid-column: 2;
+          grid-row: 2;
         }
         .step:not(:last-child)::after {
           display: none;
         }
-        /* Vertical connector for mobile steps */
+        /* Vertical connector for mobile steps — fica só na coluna do círculo */
         .step:not(:last-child)::before {
           content: "";
           position: absolute;
           left: 19px;
           top: 40px;
           width: 1.5px;
-          height: calc(100% + 32px - 40px);
+          height: calc(100% + 32px);
           background: rgba(37, 99, 235, 0.2);
         }
 
