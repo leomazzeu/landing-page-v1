@@ -630,6 +630,19 @@
         flex-direction: row;
         gap: 48px;
         align-items: flex-start;
+        overflow: hidden;
+        border-top: none;
+        position: relative;
+      }
+      .solucao-card--wide::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, var(--blue), #0f1b2d);
+        border-radius: 12px 12px 0 0;
       }
       .solucao-card--wide .solucao-body {
         flex: 1;
@@ -1161,7 +1174,7 @@
           </div>
           <div class="solucao-card solucao-card--wide fade-in">
             <div class="solucao-body">
-              <span class="solucao-tag">Sob Medida</span>
+              <span class="solucao-tag" style="background: var(--blue); color: #fff;">Sob Medida</span>
               <h3>Automação Personalizada</h3>
               <p>
                 Nem todo problema cabe num produto pronto. Se o seu processo é específico — seja no atendimento, nas vendas
