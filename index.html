@@ -625,9 +625,62 @@
         color: var(--navy);
         font-weight: 600;
       }
+      .solucao-card--wide {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 48px;
+        align-items: flex-start;
+      }
+      .solucao-card--wide .solucao-body {
+        flex: 1;
+      }
+      .solucao-card--wide .solucao-exemplos {
+        flex-shrink: 0;
+        width: 260px;
+        background: var(--off-white);
+        border-radius: 8px;
+        padding: 20px 24px;
+      }
+      .solucao-card--wide .solucao-exemplos p {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .solucao-card--wide .solucao-exemplos ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .solucao-card--wide .solucao-exemplos li {
+        font-size: 0.875rem;
+        color: var(--slate);
+        line-height: 1.5;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .solucao-card--wide .solucao-exemplos li::before {
+        content: "→";
+        color: var(--blue);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
       @media (max-width: 768px) {
         .solucoes-grid {
           grid-template-columns: 1fr;
+        }
+        .solucao-card--wide {
+          flex-direction: column;
+          gap: 24px;
+        }
+        .solucao-card--wide .solucao-exemplos {
+          width: 100%;
         }
       }
 
@@ -1105,6 +1158,26 @@
               recebe um resumo completo do dia — sem precisar checar cada mensagem manualmente.
             </p>
             <p class="solucao-for"><strong>Para quem:</strong> Empresas com equipe de atendimento ativa no WhatsApp e gestores que precisam de visibilidade sem abrir o aplicativo.</p>
+          </div>
+          <div class="solucao-card solucao-card--wide fade-in">
+            <div class="solucao-body">
+              <span class="solucao-tag">Sob Medida</span>
+              <h3>Automação Personalizada</h3>
+              <p>
+                Nem todo problema cabe num produto pronto. Se o seu processo é específico — seja no atendimento, nas vendas
+                ou na operação — eu mergulho no seu negócio e construo a solução do zero, do jeito que você precisa.
+              </p>
+              <p class="solucao-for"><strong>Para quem:</strong> Empresas com processos únicos que ferramentas genéricas não resolvem, ou que já têm clareza do problema e precisam de alguém para construir.</p>
+            </div>
+            <div class="solucao-exemplos">
+              <p>Exemplos reais</p>
+              <ul>
+                <li>Bot de atendimento com inteligência artificial no WhatsApp</li>
+                <li>Automação de geração de documentos e contratos</li>
+                <li>Integrações entre sistemas que não se conversam</li>
+                <li>Relatórios automáticos para gestão interna</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
