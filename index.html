@@ -630,13 +630,16 @@
         flex-direction: row;
         gap: 48px;
         align-items: flex-start;
+        overflow: hidden;
       }
       .solucao-card--wide .solucao-body {
         flex: 1;
+        min-width: 0;
       }
       .solucao-card--wide .solucao-exemplos {
         flex-shrink: 0;
         width: 260px;
+        min-width: 0;
         background: var(--off-white);
         border-radius: 8px;
         padding: 20px 24px;
@@ -679,8 +682,11 @@
           flex-direction: column;
           gap: 24px;
         }
+        .solucao-card--wide .solucao-body,
         .solucao-card--wide .solucao-exemplos {
           width: 100%;
+          min-width: 0;
+          flex-shrink: 1;
         }
       }
 
