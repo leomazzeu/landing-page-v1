@@ -562,6 +562,75 @@
         opacity: 0.4;
       }
 
+      /* ── SOLUÇÕES ── */
+      .solucoes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .solucao-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--blue);
+        border-radius: 12px;
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .solucao-card:hover {
+        box-shadow: 0 8px 32px rgba(15, 27, 45, 0.08);
+        transform: translateY(-2px);
+      }
+      .solucao-tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--blue);
+        background: var(--blue-dim);
+        border-radius: 4px;
+        padding: 4px 10px;
+        margin-bottom: 20px;
+        align-self: flex-start;
+      }
+      .solucao-card h3 {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 12px;
+        line-height: 1.35;
+      }
+      .solucao-card p {
+        font-size: 0.9375rem;
+        color: var(--slate);
+        line-height: 1.7;
+        margin-bottom: 24px;
+        flex: 1;
+      }
+      .solucao-for {
+        font-size: 0.8125rem;
+        color: var(--slate);
+        border-top: 1px solid var(--border);
+        padding-top: 16px;
+        margin-top: auto;
+      }
+      .solucao-for strong {
+        color: var(--navy);
+        font-weight: 600;
+      }
+      @media (max-width: 768px) {
+        .solucoes-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       /* ── CTA FINAL ── */
       .cta-section {
         padding: 120px 0;
@@ -1011,6 +1080,36 @@
       </div>
     </section>
 
+    <section class="section section--light thread-section">
+      <div class="thread-node" style="top: -7px; background: var(--off-white)" aria-hidden="true"></div>
+      <div class="container">
+        <div class="fade-in">
+          <span class="section-label">Soluções</span>
+          <h2 class="text-heading section-title">O que posso fazer pelo seu negócio</h2>
+        </div>
+        <div class="solucoes-grid">
+          <div class="solucao-card fade-in">
+            <span class="solucao-tag">Processo Comercial</span>
+            <h3>CRM + Automação de Vendas</h3>
+            <p>
+              Organizo o seu processo comercial do zero: implanto o CRM, estruturo as etapas do funil e automatizo o
+              follow-up com leads. Seu time foca em vender — o sistema cuida do resto.
+            </p>
+            <p class="solucao-for"><strong>Para quem:</strong> Empresas que perdem lead por falta de acompanhamento ou que dependem da memória do vendedor para não deixar ninguém cair no esquecimento.</p>
+          </div>
+          <div class="solucao-card fade-in">
+            <span class="solucao-tag">Visibilidade de Atendimento</span>
+            <h3>Relatório Diário de Atendimento</h3>
+            <p>
+              Toda conversa do WhatsApp da sua equipe é monitorada e processada com inteligência artificial. Às 17h você
+              recebe um resumo completo do dia — sem precisar checar cada mensagem manualmente.
+            </p>
+            <p class="solucao-for"><strong>Para quem:</strong> Empresas com equipe de atendimento ativa no WhatsApp e gestores que precisam de visibilidade sem abrir o aplicativo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--dark thread-section">
       <div class="thread-node" style="top: -7px" aria-hidden="true"></div>
       <div class="container">
@@ -1075,6 +1174,7 @@
           <span class="tool-badge"><span class="tool-dot" style="background: #10a37f"></span>OpenAI</span>
           <span class="tool-badge"><span class="tool-dot" style="background: #cc785c"></span>Claude AI</span>
           <span class="tool-badge"><span class="tool-dot" style="background: #25d366"></span>WhatsApp API</span>
+          <span class="tool-badge"><span class="tool-dot" style="background: #6e5bff"></span>Kommo CRM</span>
         </div>
       </div>
     </section>
