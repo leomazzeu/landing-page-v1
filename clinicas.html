@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonardo Mazzeu | Organize o atendimento da sua clínica</title>
+  <meta name="description" content="Ajudo clínicas a parar de perder pacientes no WhatsApp — organizando o atendimento do primeiro contato até o agendamento confirmado. Em até 2 semanas." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Leonardo Mazzeu | Organize o atendimento da sua clínica" />
+  <meta property="og:description" content="Ajudo clínicas a parar de perder pacientes no WhatsApp — organizando o atendimento do primeiro contato até o agendamento confirmado. Em até 2 semanas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://leonardomazzeu.com.br/clinicas" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── VARIABLES ── */
+    :root {
+      --navy:      #0f1b2d;
+      --navy-card: #162236;
+      --blue:      #2563eb;
+      --blue-dim:  rgba(37,99,235,0.12);
+      --blue-lt:   #eff6ff;
+      --slate:     #64748b;
+      --muted:     #94a3b8;
+      --border:    #e2e8f0;
+      --off-white: #f8fafc;
+      --white:     #ffffff;
+      --green-wa:  #25d366;
+
+      --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+
+      --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+      --section-pad:    96px 0;
+      --container-max:  1100px;
+      --container-pad:  0 24px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: var(--container-pad);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .text-display {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .text-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 1.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .text-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+  </style>
+</head>
+<body>
+  <!-- conteúdo nas próximas tasks -->
+</body>
+</html>
