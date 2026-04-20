@@ -1,0 +1,6 @@
+FROM nginx:alpine
+
+COPY clinicas.html /usr/share/nginx/html/index.html
+COPY foto-leonardo-circulo.png /usr/share/nginx/html/foto-leonardo-circulo.png
+
+EXPOSE 80
