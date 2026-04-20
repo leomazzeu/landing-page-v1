@@ -80,6 +80,8 @@
         max-width: var(--container-max);
         margin: 0 auto;
         padding: var(--container-pad);
+        box-sizing: border-box;
+        width: 100%;
       }
 
       .fade-in {
@@ -268,6 +270,7 @@
       /* ── SECTION BASE ── */
       .section {
         padding: var(--section-pad);
+        overflow: hidden;
       }
       .section--light {
         background: var(--off-white);
@@ -646,10 +649,12 @@
       }
       .solucao-card--wide .solucao-body {
         flex: 1;
+        min-width: 0;
       }
       .solucao-card--wide .solucao-exemplos {
         flex-shrink: 0;
         width: 260px;
+        min-width: 0;
         background: var(--off-white);
         border-radius: 8px;
         padding: 20px 24px;
@@ -692,8 +697,11 @@
           flex-direction: column;
           gap: 24px;
         }
+        .solucao-card--wide .solucao-body,
         .solucao-card--wide .solucao-exemplos {
           width: 100%;
+          min-width: 0;
+          flex-shrink: 1;
         }
       }
 
