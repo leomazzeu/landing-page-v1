@@ -93,9 +93,675 @@
       text-transform: uppercase;
       color: var(--slate);
     }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-badge {
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(37,99,235,0.3);
+      color: #93c5fd;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 64px 0 72px;
+      text-align: center;
+    }
+    .hero-pill {
+      display: inline-block;
+      background: var(--blue-dim);
+      border: 1px solid rgba(37,99,235,0.25);
+      color: #93c5fd;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-wa);
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-wa:hover { opacity: 0.9; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.45); }
+
+    /* ── SEÇÃO DOR ── */
+    .section-pain {
+      background: var(--off-white);
+      padding: var(--section-pad);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-header .text-label { margin-bottom: 10px; display: block; }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .pain-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue-lt);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .pain-card h3 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .pain-card p { color: var(--slate); font-size: 13px; line-height: 1.65; }
+    .pain-close {
+      text-align: center;
+      padding: 22px 32px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .pain-close-line1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .pain-close-line2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    @media (max-width: 768px) {
+      .pain-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── SEÇÃO PROCESSO ── */
+    .section-process {
+      background: var(--navy);
+      padding: var(--section-pad);
+    }
+    .section-process .section-header .text-label { color: var(--slate); }
+    .section-process .text-heading { color: var(--white); }
+
+    .process-featured {
+      background: linear-gradient(135deg, #1e3a5f 0%, #162236 100%);
+      border: 1px solid rgba(37,99,235,0.4);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .process-number {
+      width: 52px;
+      height: 52px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--white);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .process-featured-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 6px;
+    }
+    .process-featured h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .process-featured p { color: var(--muted); font-size: 14px; line-height: 1.65; max-width: 560px; }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .process-card {
+      background: var(--navy-card);
+      border-radius: 14px;
+      padding: 36px 28px;
+    }
+    .process-card .process-number { margin-bottom: 20px; }
+    .process-card h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .process-card p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+
+    .process-proof {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .proof-item { text-align: center; }
+    .proof-value {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1.2;
+    }
+    .proof-label { color: var(--slate); font-size: 12px; margin-top: 4px; }
+    .proof-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.08); }
+
+    @media (max-width: 768px) {
+      .process-featured { flex-direction: column; gap: 16px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .proof-divider { display: none; }
+    }
+
+    /* ── SEÇÃO SOBRE ── */
+    .section-about {
+      background: var(--off-white);
+      padding: var(--section-pad);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .about-photo-wrap { text-align: center; }
+    .about-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 16px;
+      display: block;
+    }
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      border-radius: 100px;
+      padding: 8px 16px;
+    }
+    .about-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .about-badge span { color: var(--white); font-size: 12px; font-weight: 600; }
+    .about-content .text-label { color: var(--blue); margin-bottom: 10px; display: block; }
+    .about-content h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .about-content p { color: var(--slate); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+    .about-bullets { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .about-bullet { display: flex; align-items: flex-start; gap: 10px; }
+    .about-bullet-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--blue-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .about-bullet-dot::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    .about-bullet span { color: #475569; font-size: 14px; }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── SEÇÃO CTA FINAL ── */
+    .section-cta {
+      background: var(--navy);
+      padding: var(--section-pad);
+      text-align: center;
+    }
+    .cta-inner { max-width: 560px; margin: 0 auto; }
+    .cta-inner .text-label { color: var(--slate); margin-bottom: 12px; display: block; }
+    .cta-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-sub { color: var(--muted); font-size: 15px; line-height: 1.7; margin-bottom: 32px; }
+    .cta-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 14px 0 22px;
+    }
+    .cta-divider-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+    .cta-divider span { color: #475569; font-size: 12px; }
+    .cta-form {
+      background: var(--navy-card);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: left;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group:last-of-type { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .form-input {
+      width: 100%;
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 11px 14px;
+      color: var(--white);
+      font-size: 14px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: var(--slate); }
+    .form-input:focus { border-color: rgba(37,99,235,0.6); }
+    .btn-submit {
+      width: 100%;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: opacity 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.9; }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      color: #86efac;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px 0;
+      text-align: center;
+    }
+    .footer p { color: var(--slate); font-size: 13px; }
   </style>
 </head>
 <body>
-  <!-- conteúdo nas próximas tasks -->
+  <header style="background: var(--navy);">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="nav-logo">Leonardo Mazzeu</a>
+        <span class="nav-badge">Parceiro Oficial Kommo</span>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="fade-in">
+        <span class="hero-pill">Automação Inteligente para Clínicas</span>
+        <h1 class="hero-headline">
+          Sua clínica recebe mensagens<br>mas perde agendamentos no caminho?
+        </h1>
+        <p class="hero-sub">
+          Eu organizo seu atendimento — do primeiro contato até o agendamento confirmado — sem você precisar entender de tecnologia. Em até 2 semanas.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5535999949096?text=Oi%20Leonardo%2C%20quero%20organizar%20o%20atendimento%20da%20minha%20cl%C3%ADnica" target="_blank" rel="noopener" class="btn-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a href="#como-funciona" class="btn-ghost">
+            Ver como funciona →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pain">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="text-label">O problema</span>
+        <h2 class="text-heading">Sua clínica tem demanda.<br>O problema está no processo.</h2>
+      </div>
+
+      <div class="pain-grid">
+
+        <div class="pain-card fade-in">
+          <div class="pain-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Demora pra responder</h3>
+          <p>A pessoa manda mensagem no WhatsApp ou Instagram — e fica horas sem resposta. Quando você vê, ela já marcou com outra clínica.</p>
+        </div>
+
+        <div class="pain-card fade-in">
+          <div class="pain-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <line x1="23" y1="11" x2="17" y2="11"/>
+            </svg>
+          </div>
+          <h3>Contato que some</h3>
+          <p>Alguém pediu orçamento, não respondeu mais — e ninguém voltou a contato. Esse paciente foi embora sem você perceber.</p>
+        </div>
+
+        <div class="pain-card fade-in">
+          <div class="pain-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>Cada um sabe uma parte</h3>
+          <p>Mensagens no WhatsApp pessoal, no da clínica, no Instagram. Sem histórico, sem controle — cada pessoa da equipe sabe de uma parte.</p>
+        </div>
+
+      </div>
+
+      <div class="pain-close fade-in">
+        <p class="pain-close-line1">Esses problemas têm solução.</p>
+        <p class="pain-close-line2">E ela não exige que você entenda de tecnologia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-process" id="como-funciona">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="text-label">O processo</span>
+        <h2 class="text-heading">Como funciona na prática</h2>
+      </div>
+
+      <div class="process-featured fade-in">
+        <div class="process-number">1</div>
+        <div>
+          <p class="process-featured-label">Começa aqui — uma conversa</p>
+          <h3>Entendemos o seu dia a dia</h3>
+          <p>Uma conversa rápida de 30 minutos para mapear como você atende hoje — WhatsApp, agenda e equipe. A partir disso, mostramos exatamente o que vai mudar na sua rotina.</p>
+        </div>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card fade-in">
+          <div class="process-number">2</div>
+          <h3>Configuramos tudo por você</h3>
+          <p>Montamos o seu CRM, as automações de WhatsApp e os fluxos de agendamento — do zero, sem você precisar entender de tecnologia. Em até 2 semanas você já atende de forma organizada.</p>
+        </div>
+        <div class="process-card fade-in">
+          <div class="process-number">3</div>
+          <h3>Sua clínica não para mais</h3>
+          <p>Nenhum contato cai no esquecimento, você sabe o que está acontecendo — e sua clínica não para se alguém falta.</p>
+        </div>
+      </div>
+
+      <div class="process-proof fade-in">
+        <div class="proof-item">
+          <div class="proof-value">2 semanas</div>
+          <div class="proof-label">prazo de entrega</div>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <div class="proof-value">Parceiro Oficial</div>
+          <div class="proof-label">Kommo CRM no Brasil</div>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <div class="proof-value">Zero</div>
+          <div class="proof-label">conhecimento técnico necessário</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-about">
+    <div class="container">
+      <div class="about-grid fade-in">
+
+        <div class="about-photo-wrap">
+          <img src="foto-leonardo-circulo.png" alt="Leonardo Mazzeu" class="about-photo" />
+          <div class="about-badge">
+            <div class="about-badge-dot"></div>
+            <span>Parceiro Oficial Kommo</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="text-label">Quem faz isso acontecer</span>
+          <h2>Leonardo Mazzeu</h2>
+          <p>Ajudo clínicas a parar de perder pacientes no WhatsApp — organizando o atendimento do primeiro contato até o agendamento confirmado.</p>
+          <p>Não entrego um sistema e sumo. Configuro tudo junto com você, acompanho a implantação e só considero o trabalho feito quando sua clínica já está rodando organizada na prática.</p>
+          <div class="about-bullets">
+            <div class="about-bullet">
+              <div class="about-bullet-dot"></div>
+              <span>Automação de atendimento com inteligência artificial</span>
+            </div>
+            <div class="about-bullet">
+              <div class="about-bullet-dot"></div>
+              <span>Entrega em até 2 semanas, com suporte contínuo</span>
+            </div>
+            <div class="about-bullet">
+              <div class="about-bullet-dot"></div>
+              <span>Parceiro oficial Kommo no Brasil</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cta">
+    <div class="container">
+      <div class="cta-inner fade-in">
+        <span class="text-label">Próximo passo</span>
+        <h2 class="cta-headline">Pronto para parar de perder<br>pacientes no WhatsApp?</h2>
+        <p class="cta-sub">Conversa rápida de 30 minutos. Sem compromisso. Eu entendo sua rotina e mostro exatamente o que vai mudar.</p>
+
+        <a href="https://wa.me/5535999949096?text=Oi%20Leonardo%2C%20quero%20organizar%20o%20atendimento%20da%20minha%20cl%C3%ADnica" target="_blank" rel="noopener" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp agora
+        </a>
+
+        <div class="cta-divider">
+          <div class="cta-divider-line"></div>
+          <span>prefiro que você entre em contato comigo</span>
+          <div class="cta-divider-line"></div>
+        </div>
+
+        <form class="cta-form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="nome">Nome</label>
+            <input class="form-input" type="text" id="nome" name="nome" placeholder="Seu nome" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="whatsapp">WhatsApp</label>
+            <input class="form-input" type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required />
+          </div>
+          <button type="submit" class="btn-submit" id="btn-submit">Quero organizar minha clínica →</button>
+          <div class="form-success" id="form-success">
+            ✓ Recebido! Leonardo vai entrar em contato com você em breve.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Leonardo Mazzeu · Automação Inteligente para Clínicas</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── FADE-IN AO SCROLL ──
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── FORMULÁRIO → N8N WEBHOOK ──
+    const WEBHOOK_URL = 'COLE_A_URL_DO_WEBHOOK_N8N_AQUI';
+
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit');
+      const success = document.getElementById('form-success');
+
+      const nome     = document.getElementById('nome').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+
+      if (!nome || !whatsapp) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, whatsapp, origem: 'landing-clinicas', data: new Date().toISOString() })
+        });
+      } catch (_) {
+        // falha silenciosa — notificação via webhook é best-effort
+      }
+
+      btn.style.display = 'none';
+      success.style.display = 'block';
+      this.reset();
+    });
+  </script>
 </body>
 </html>
